@@ -1,0 +1,3 @@
+﻿  mk_cheat.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1266,5): warning MSB8012: TargetPath(C:\Users\almaz\source\repos\mk_cheat\x64\Debug\mk_cheat.exe) does not match the Linker's OutputFile property value (). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  mk_cheat.vcxproj -> C:\Users\almaz\source\repos\mk_cheat\x64\Debug\mk_cheat.exe

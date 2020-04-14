@@ -1,39 +1,30 @@
-﻿#include <opencv/cv.h>
+#include <opencv/cv.h>
+#include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <opencv2/imgcodecs.hpp>
+#include <string>
+using namespace cv;
 int main(int argc, char* argv[])
 {
 	IplImage* src = 0, * dst = 0;
-
-	// имя картинки задаётся первым параметром
-	const char* filename = argc >= 2 ? argv[1] : "lena.png";
-	// получаем картинку
-	src = cvLoadImage(filename, 0);
-
-	printf("[i] image: %s\n", filename);
-	assert(src != 0);
-
-	// покажем изображение
-	cvNamedWindow("original", 1);
-	cvShowImage("original", src);
-
-	dst = cvCreateImage(cvSize(src->width, src->height), IPL_DEPTH_8U, 1);
-
-	cvInRangeS(src, cvScalar(50), cvScalar(255), dst);
-	IplImage dar = cvSetImageROI(src, cvRect(20, 20, 20, 20));
-	// показываем результаты
-	cvNamedWindow("cvInRangeS", 1);
-	cvShowImage("cvInRangeS", dst);
-
-	// ждём нажатия клавиши
-	cvWaitKey(0);
-
-	// освобождаем ресурсы
-	cvReleaseImage(&src);
-	cvReleaseImage(&dst);
-	// удаляем окна
-	cvDestroyAllWindows();
+	for (int i = 1000; i <= 1003; i++)
+	{
+		String png = ".png";
+		// имя картинки задаётся первым параметром
+		String filenames =  std::to_string(i) + png;
+		char filename[20];
+		strcpy(filename, filenames.c_str());
+		// получаем картинку
+		src = cvLoadImage(filename, 0);
+		printf("[i] image: %s\n", filename);
+		assert(src != 0);
+		dst = cvCreateImage(cvSize(src->width, src->height), IPL_DEPTH_8U, 1);
+		cvInRangeS(src, cvScalar(50), cvScalar(255), dst);
+		// показываем результаты
+		Mat m = cvarrToMat(dst);
+		cv::imwrite("opencv.jpg", m);
+	}
 	return 0;
 }

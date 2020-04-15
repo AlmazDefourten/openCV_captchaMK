@@ -14,8 +14,8 @@ int main(int argc, char* argv[])
 	{
 		String mm = "C://Users/almaz/source/repos/mk_cheat/resources/captcha/";
 		String png = ".png";
-		// имя картинки задаётся первым параметром
-		String filenames = mm + std::to_string(i) + png;
+		String dva = "(1)";
+		String filenames = mm + std::to_string(i) + dva + png;
 		char filename[20];
 		
 			strcpy(filename, filenames.c_str());

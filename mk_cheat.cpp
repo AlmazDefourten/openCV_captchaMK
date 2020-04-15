@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	{
 		String mm = "C://Users/almaz/source/repos/mk_cheat/resources/captcha/";
 		String png = ".png";
-		String dva = "(1)";
+		String dva = "(2)";
 		String filenames = mm + std::to_string(i) + dva + png;
 		char filename[20];
 		
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 			Mat m = cvarrToMat(dst);
 			String pp = "C://Users/almaz/source/repos/mk_cheat/resources/captcha_bin/";
 			char exitfile[100];
-			String fileexs = pp + std::to_string(i) + png;
+			String fileexs = pp + std::to_string(i) + dva + png;
 			strcpy(exitfile, fileexs.c_str());
 			cv::imwrite(exitfile, m);
 		}
